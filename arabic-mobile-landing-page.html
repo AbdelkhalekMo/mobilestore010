@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>010 موبايل - هواتف وإكسسوارات</title>
+    <!-- Bootstrap CSS RTL -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Library for scroll animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Arabic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #e31f1f;
+            --secondary-red: #c61010;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+        
+        body {
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            text-align: right;
+        }
+        
+        /* Navbar styling */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand img {
+            max-height: 50px;
+            transition: transform 0.3s;
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-red);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-red);
+            border-color: var(--primary-red);
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-red);
+            border-color: var(--secondary-red);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            left: -100px;
+            bottom: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s;
+        }
+        
+        .hero-img:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .feature-box {
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+        
+        /* Products section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .product-details {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quote-icon {
+            font-size: 2rem;
+            color: var(--primary-red);
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+            color: var(--white);
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-left: 10px;
+            color: var(--white);
+        }
+        
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--white);
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            box-shadow: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-logo {
+            max-width: 120px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+        
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-red);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .newsletter-box {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .newsletter-input {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 0 5px 5px 0;
+            text-align: right;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--primary-red);
+            border-color: var(--primary-red);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 5px 0 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: var(--secondary-red);
+            border-color: var(--secondary-red);
+        }
+
+        /* Logo style */
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Social icon style */
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <!-- Using the 010 Mobile logo with wings -->
+                <img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/placeholder.max-300x300.jpg" alt="شعار 010 موبايل" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">المنتجات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">خدماتنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">اتصل بنا</a>
+                    </li>
+                </ul>
+                <div class="d-flex me-lg-3">
+                    <a href="#" class="btn btn-primary">تسوق الآن</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h1>مرحباً بكم في 010 موبايل</h1>
+                    <p class="lead mb-4">اكتشف أحدث الهواتف الذكية والإكسسوارات بأسعار لا تقبل المنافسة وجودة عالية.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#products" class="btn btn-light btn-lg">استكشف المنتجات</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">اتصل بنا</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-right">
+                    <img src="/api/placeholder/600/400" alt="أحدث الهواتف الذكية" class="hero-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="services">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">لماذا تختارنا</h2>
+                <p class="lead">نقدم أفضل تجربة للهواتف المحمولة مع خدمات متميزة</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-truck-fast feature-icon"></i>
+                        <h4>توصيل سريع</h4>
+                        <p>احصل على أجهزتك موصلة إلى باب منزلك في غضون 24 ساعة من الشراء.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-shield-halved feature-icon"></i>
+                        <h4>حماية الضمان</h4>
+                        <p>جميع منتجاتنا تأتي مع ضمان المصنع وحمايتنا الممتدة.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-headset feature-icon"></i>
+                        <h4>دعم على مدار الساعة</h4>
+                        <p>فريقنا التقني متاح دائمًا لمساعدتك في أي مشكلة.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-exchange feature-icon"></i>
+                        <h4>استرجاع سهل</h4>
+                        <p>غير راضٍ عن مشترياتك؟ يمكنك الإرجاع خلال 14 يومًا واسترداد كامل المبلغ.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-tag feature-icon"></i>
+                        <h4>أفضل الأسعار</h4>
+                        <p>نقدم أكثر الأسعار تنافسية في السوق مع خصومات منتظمة.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-box text-center">
+                        <i class="fas fa-screwdriver-wrench feature-icon"></i>
+                        <h4>خدمات الإصلاح</h4>
+                        <p>خدمات إصلاح احترافية لجميع العلامات التجارية بقطع غيار أصلية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">منتجات مميزة</h2>
+                <p class="lead">تحقق من أحدث وأشهر عروضنا</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('/api/placeholder/400/300');"></div>
+                        <div class="product-details">
+                            <h4 class="product-title">آيفون 15 برو</h4>
+                            <p>أحدث هاتف من آبل مع شريحة A16 Bionic ونظام كاميرا احترافي.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="#" class="btn btn-sm btn-primary">أضف إلى السلة</a>
+                                <span class="product-price">3799 ريال</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('/api/placeholder/400/300');"></div>
+                        <div class="product-details">
+                            <h4 class="product-title">سامسونج جالاكسي S24</h4>
+                            <p>جرب المستوى التالي من تكنولوجيا الهاتف المحمول مع ميزات قوية.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="#" class="btn btn-sm btn-primary">أضف إلى السلة</a>
+                                <span class="product-price">3499 ريال</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('/api/placeholder/400/300');"></div>
+                        <div class="product-details">
+                            <h4 class="product-title">جوجل بيكسل 8</h4>
+                            <p>تجربة أندرويد نقية مع قدرات كاميرا استثنائية.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="#" class="btn btn-sm btn-primary">أضف إلى السلة</a>
+                                <span class="product-price">2999 ريال</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('/api/placeholder/400/300');"></div>
+                        <div class="product-details">
+                            <h4 class="product-title">ايربودز برو 2</h4>
+                            <p>صوت غامر مع إلغاء الضوضاء النشط والصوت المكاني.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="#" class="btn btn-sm btn-primary">أضف إلى السلة</a>
+                                <span class="product-price">949 ريال</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('/api/placeholder/400/300');"></div>
+                        <div class="product-details">
+                            <h4 class="product-title">شاحن فائق السرعة</h4>
+                            <p>شاحن GaN بقوة 65 واط متوافق مع جميع أحدث الهواتف الذكية وأجهزة الكمبيوتر المحمولة.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="#" class="btn btn-sm btn-primary">أضف إلى السلة</a>
+                                <span class="product-price">189 ريال</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('/api/placeholder/400/300');"></div>
+                        <div class="product-details">
+                            <h4 class="product-title">جراب هاتف فاخر</h4>
+                            <p>حماية عسكرية المستوى مع تصميم أنيق لجميع الموديلات الحديثة.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="#" class="btn btn-sm btn-primary">أضف إلى السلة</a>
+                                <span class="product-price">109 ريال</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="#" class="btn btn-lg btn-primary">عرض جميع المنتجات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="/api/placeholder/600/400" alt="عن 010 موبايل" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-right">
+                    <h2 class="section-title">عن 010 موبايل</h2>
+                    <p>في 010 موبايل، نقدم هواتف محمولة وإكسسوارات عالية الجودة منذ عام 2010. نفخر بتقديم أحدث التقنيات بأسعار تنافسية.</p>
+                    <p>يقوم فريق الخبراء لدينا باختيار كل منتج بعناية للتأكد من حصولك على الأفضل فقط. نحن نتفهم أن هاتفك الذكي هو جزء أساسي من حياتك اليومية، ونحن ملتزمون بتعزيز تجربتك المحمولة.</p>
+                    <p>سواء كنت تبحث عن أحدث جهاز رائد، أو خيارات بأسعار مناسبة، أو إكسسوارات متميزة، لدينا كل ما يلبي احتياجاتك. تضمن خدمة ما بعد البيع لدينا تجربة سلسة من الشراء إلى الاستخدام.</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <a href="#contact" class="btn btn-primary">اتصل بنا</a>
+                        <a href="#" class="btn btn-outline-primary">معرفة المزيد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+                <p class="lead">اسمع من عملائنا الراضين عن تجربتهم</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <p class="testimonial-text">أتسوق في 010 موبايل منذ سنوات. خدمة العملاء لديهم استثنائية، ولديهم دائمًا أحدث الأجهزة بأسعار تنافسية.</p>
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <h5 class="testimonial-author mb-1">سارة الأحمد</h5>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <p class="testimonial-text">خدمة الإصلاح في 010 موبايل سريعة وموثوقة. لقد أصلحوا شاشة جهاز آيفون الخاص بيخدمة الإصلاح في 010 موبايل سريعة وموثوقة. لقد أصلحوا شاشة جهاز آيفون الخاص بي في أقل من ساعة والسعر كان معقولاً جداً. أنصح بهم بشدة.</p>
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <h5 class="testimonial-author mb-1">محمد عبدالله</h5>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <p class="testimonial-text">اشتريت هاتف جالاكسي الجديد مع بعض الإكسسوارات. كانت التجربة ممتازة والتوصيل كان سريعاً جداً. سعيد جداً بمشترياتي!</p>
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <h5 class="testimonial-author mb-1">نورة الحامد</h5>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-box" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h3>اشترك في نشرتنا الإخبارية</h3>
+                        <p>احصل على أحدث العروض والتخفيضات وأخبار المنتجات الجديدة مباشرة في بريدك الإلكتروني.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <button class="newsletter-btn" type="button">اشترك</button>
+                            <input type="email" class="form-control newsletter-input" placeholder="أدخل بريدك الإلكتروني">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">اتصل بنا</h2>
+                <p class="lead">نحن هنا للإجابة على أسئلتك ومساعدتك</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-info mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <h5 class="mb-0">العنوان</h5>
+                                <p class="mb-0">شارع المعارض، حي النزهة، الرياض 12471</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone-alt contact-icon"></i>
+                            <div>
+                                <h5 class="mb-0">الهاتف</h5>
+                                <p class="mb-0">+966 54 123 4567</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <h5 class="mb-0">البريد الإلكتروني</h5>
+                                <p class="mb-0">info@010mobile.sa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <h5 class="mb-0">ساعات العمل</h5>
+                                <p class="mb-0">السبت - الخميس: 10:00 صباحاً - 10:00 مساءً</p>
+                                <p class="mb-0">الجمعة: 2:00 مساءً - 10:00 مساءً</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-right">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="الاسم">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="الموضوع">
+                        <textarea class="form-control" rows="5" placeholder="رسالتك"></textarea>
+                        <button type="submit" class="btn btn-light btn-lg mt-3">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <img src="https://storage.googleapis.com/gweb-cloudblog-publish/images/placeholder.max-300x300.jpg" alt="شعار 010 موبايل" class="footer-logo">
+                    <p>نقدم أفضل الهواتف الذكية والإكسسوارات بأسعار تنافسية منذ عام 2010.</p>
+                    <ul class="social-links">
+                        <li><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="social-icon"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="social-icon"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                    <h4 class="mb-4">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                    <h4 class="mb-4">منتجاتنا</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">هواتف آيفون</a></li>
+                        <li><a href="#">هواتف سامسونج</a></li>
+                        <li><a href="#">هواتف شاومي</a></li>
+                        <li><a href="#">إكسسوارات</a></li>
+                        <li><a href="#">أجهزة لوحية</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                    <h4 class="mb-4">خدمة العملاء</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الضمان</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p>جميع الحقوق محفوظة &copy; 2025 - 010 موبايل - سعداء بخدمتكم</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap and other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
